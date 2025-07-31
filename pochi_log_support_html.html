@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pochi log - サポート</title>
+    <meta name="description" content="Pochi log アプリのサポートページ。よくある質問、お問い合わせ、プライバシーポリシーなど">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .logo .pochi {
+            color: #fff;
+        }
+        
+        .logo .log {
+            color: #2c3e50;
+        }
+        
+        .logo .dot {
+            color: #ff9f43;
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            background: white;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4ecdc4;
+        }
+        
+        .section h3 {
+            color: #4ecdc4;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4ecdc4;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #4ecdc4, #ff9f43);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .highlight {
+            background: #e8f8f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4ecdc4;
+            margin: 20px 0;
+        }
+        
+        .version-info {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+        
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(78, 205, 196, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .lang-switch:hover {
+            background: rgba(78, 205, 196, 1);
+            transform: translateY(-2px);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .nav {
+                gap: 10px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .lang-switch {
+                position: static;
+                display: inline-block;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="lang-switch" onclick="toggleLanguage()">English</a>
+    
+    <div id="japanese" class="content">
+        <header>
+            <div class="logo">
+                <span class="pochi">pochi</span>
+                <span class="log">log</span>
+                <span class="dot">•</span>
+            </div>
+            <div class="subtitle">シンプル2択記録アプリ - サポートページ</div>
+            <nav class="nav">
+                <a href="#faq">よくある質問</a>
+                <a href="#guide">使い方ガイド</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="#privacy">プライバシー</a>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <section id="faq" class="section">
+                <h2>よくある質問</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: アプリが起動しません</div>
+                    <div class="faq-answer">
+                        端末の再起動をお試しください。それでも解決しない場合は、アプリを一度削除して再インストールしてください。データは端末内に保存されているため、削除すると記録が消えることにご注意ください。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: データは安全ですか？</div>
+                    <div class="faq-answer">
+                        はい、完全に安全です。Pochi logはすべてのデータを端末内にのみ保存し、外部サーバーへの送信は一切行いません。アカウント作成も不要で、あなたの記録は完全にプライベートです。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Pro版と無料版の違いは？</div>
+                    <div class="faq-answer">
+                        無料版では基本的な記録機能をご利用いただけます。Pro版では<strong>広告非表示</strong>、<strong>高度なリマインダー機能</strong>（ログ項目ごとに曜日・時間を個別設定）、<strong>ログ項目の無制限追加</strong>が利用可能です。無料版は3つまでのログ項目制限があります。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: ログ項目や選択肢はカスタマイズできますか？</div>
+                    <div class="faq-answer">
+                        はい、完全にカスタマイズ可能です。ログ項目（質問）と選択肢の両方を<strong>自由に追加・編集・削除</strong>できます。例えば「今日の気分は？」→「良い/悪い」や「筋トレした？」→「完了/未完了」など、あなたのライフスタイルに合わせて設定してください。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: 選択肢は「はい/いいえ」以外も設定できますか？</div>
+                    <div class="faq-answer">
+                        はい、任意の2つの選択肢を設定できます。「良い/普通」「A/B」「完了/未完了」「満足/不満足」など、記録したい内容に合わせて自由に変更可能です。ログ項目と選択肢は後からでも編集・削除できます。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: データのバックアップはできますか？</div>
+                    <div class="faq-answer">
+                        現在、データは端末内にのみ保存されています。Pro版ではデータのエクスポート機能をご利用いただけます。また、iOSの自動バックアップ機能により、端末の復元時にデータが復旧される場合があります。
+                    </div>
+                </div>
+            </section>
+            
+            <section id="guide" class="section">
+                <h2>使い方ガイド</h2>
+                
+                <h3>基本的な使い方</h3>
+                <div class="highlight">
+                    <p><strong>Step 1:</strong> 新しい習慣を追加する</p>
+                    <p>「+」ボタンから習慣を追加し、質問文と2つの選択肢を設定します。</p>
+                    <br>
+                    <p><strong>Step 2:</strong> 毎日記録する</p>
+                    <p>習慣をタップして、該当する選択肢を選ぶだけ。たった3秒で完了です。</p>
+                    <br>
+                    <p><strong>Step 3:</strong> 統計で進捗を確認</p>
+                    <p>統計画面で達成率や記録回数を確認できます。</p>
+                </div>
+                
+                <h3>主な機能</h3>
+                <ul class="feature-list">
+                    <li>シンプルな2択記録システム</li>
+                    <li>ログ項目（質問）の自由な追加・編集・削除</li>
+                    <li>選択肢の完全カスタマイズ（追加・編集・削除対応）</li>
+                    <li>基本的な統計表示</li>
+                    <li>シンプルなリマインダー機能</li>
+                    <li>日本語・英語対応</li>
+                    <li>完全ローカル保存（プライバシー重視）</li>
+                </ul>
+                
+                <h3>Pro版限定機能</h3>
+                <ul class="feature-list">
+                    <li>広告非表示</li>
+                    <li>ログ項目の無制限追加</li>
+                    <li>高度なリマインダー（項目ごとに曜日・時間を個別設定）</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>📝 カスタマイズ例</h4>
+                    <p><strong>ログ項目：</strong> 「今日の気分は？」「筋トレした？」「本を読んだ？」</p>
+                    <p><strong>選択肢：</strong> 「良い/悪い」「完了/未完了」「はい/いいえ」</p>
+                    <p>すべて後から自由に編集・削除できます。</p>
+                </div>
+            </section>
+            
+            <section id="contact" class="section">
+                <h2>お問い合わせ</h2>
+                <p>アプリに関するご質問、不具合報告、機能要望などがございましたら、以下の方法でお気軽にお問い合わせください。</p>
+                
+                <div class="contact-info">
+                    <h3>📧 サポートメール</h3>
+                    <a href="mailto:nkappsup@gmail.com">nkappsup@gmail.com</a>
+                    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">
+                        通常48時間以内にご返信いたします
+                    </p>
+                </div>
+                
+                <h3>お問い合わせ時のお願い</h3>
+                <p>より迅速にサポートするため、以下の情報を含めてご連絡ください：</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>ご利用中の端末（iPhone/iPad）</li>
+                    <li>OSのバージョン</li>
+                    <li>アプリのバージョン</li>
+                    <li>発生している問題の詳細</li>
+                    <li>エラーメッセージ（表示される場合）</li>
+                </ul>
+            </section>
+            
+            <section id="privacy" class="section">
+                <h2>プライバシーポリシー</h2>
+                
+                <h3>データの取り扱いについて</h3>
+                <p>Pochi logは、ユーザーのプライバシーを最優先に考えて設計されています。</p>
+                
+                <div class="highlight">
+                    <h4>📍 収集するデータ</h4>
+                    <p>• 習慣の記録データ（端末内のみ保存）</p>
+                    <p>• アプリの設定情報（端末内のみ保存）</p>
+                    <br>
+                    <h4>🚫 収集しないデータ</h4>
+                    <p>• 個人を特定する情報</p>
+                    <p>• 位置情報</p>
+                    <p>• 連絡先</p>
+                    <p>• その他の端末データ</p>
+                </div>
+                
+                <h3>データの保存場所</h3>
+                <p>すべてのデータは端末内にのみ保存され、外部サーバーやクラウドサービスに送信されることはありません。</p>
+                
+                <h3>第三者との共有</h3>
+                <p>ユーザーのデータを第三者と共有することは一切ありません。</p>
+                
+                <h3>データの削除</h3>
+                <p>アプリを削除すると、すべてのデータが完全に削除されます。</p>
+            </section>
+            
+            <section class="section">
+                <h2>利用規約</h2>
+                
+                <h3>アプリの利用について</h3>
+                <p>本アプリは個人の習慣管理を目的として開発されています。以下の点をご了承の上ご利用ください。</p>
+                
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>アプリは現状のまま提供され、完全性や正確性を保証するものではありません</li>
+                    <li>データの消失や破損について、開発者は責任を負いません</li>
+                    <li>重要なデータは定期的にバックアップを取ることをお勧めします</li>
+                    <li>アプリの利用により生じた損害について、開発者は責任を負いません</li>
+                </ul>
+                
+                <h3>禁止事項</h3>
+                <p>以下の行為は禁止されています：</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>アプリの逆コンパイルや改変</li>
+                    <li>不正な方法でのアプリの利用</li>
+                    <li>他者の権利を侵害する行為</li>
+                </ul>
+            </section>
+            
+            <div class="version-info">
+                <p>最終更新日: 2025年8月1日</p>
+                <p>アプリバージョン: 1.0.0</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Pochi Log. All rights reserved.</p>
+            <p>このサポートページに関するご質問は <a href="mailto:nkappsup@gmail.com">nkappsup@gmail.com</a> までお問い合わせください。</p>
+        </footer>
+    </div>
+    
+    <div id="english" class="content hidden">
+        <header>
+            <div class="logo">
+                <span class="pochi">pochi</span>
+                <span class="log">log</span>
+                <span class="dot">•</span>
+            </div>
+            <div class="subtitle">Simple 2-Choice Logging App - Support Page</div>
+            <nav class="nav">
+                <a href="#faq-en">FAQ</a>
+                <a href="#guide-en">User Guide</a>
+                <a href="#contact-en">Contact</a>
+                <a href="#privacy-en">Privacy</a>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <section id="faq-en" class="section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: The app won't start</div>
+                    <div class="faq-answer">
+                        Please try restarting your device. If that doesn't work, try deleting and reinstalling the app. Please note that data is stored on your device, so deleting the app will remove your records.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is my data safe?</div>
+                    <div class="faq-answer">
+                        Yes, completely safe. Pochi log stores all data only on your device and never transmits data to external servers. No account creation is required, and your records are completely private.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What's the difference between Pro and free versions?</div>
+                    <div class="faq-answer">
+                        The free version offers basic recording features. Pro version includes <strong>ad-free experience</strong>, <strong>advanced reminder features</strong> (individual day/time settings per log item), and <strong>unlimited log items</strong>. The free version is limited to 3 log items.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I customize log items and choices?</div>
+                    <div class="faq-answer">
+                        Yes, completely customizable. You can <strong>freely add, edit, and delete</strong> both log items (questions) and choices. For example, "How's your mood today?" → "Good/Bad" or "Did you exercise?" → "Done/Not Done" - customize to fit your lifestyle.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I set choices other than "Yes/No"?</div>
+                    <div class="faq-answer">
+                        Yes, you can set any two choices. "Good/Normal", "A/B", "Done/Not Done", "Satisfied/Unsatisfied", etc. - freely change according to what you want to record. Log items and choices can be edited or deleted later.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I backup my data?</div>
+                    <div class="faq-answer">
+                        Currently, data is stored only on your device. Pro version offers data export functionality. iOS automatic backup may also restore your data when restoring your device.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="guide-en" class="section">
+                <h2>User Guide</h2>
+                
+                <h3>Basic Usage</h3>
+                <div class="highlight">
+                    <p><strong>Step 1:</strong> Add a new habit</p>
+                    <p>Use the "+" button to add a habit and set the question and two choices.</p>
+                    <br>
+                    <p><strong>Step 2:</strong> Record daily</p>
+                    <p>Tap the habit and select the appropriate choice. Complete in just 3 seconds.</p>
+                    <br>
+                    <p><strong>Step 3:</strong> Check progress with statistics</p>
+                    <p>View achievement rates and record counts in the statistics screen.</p>
+                </div>
+                
+                <h3>Main Features</h3>
+                <ul class="feature-list">
+                    <li>Simple 2-choice recording system</li>
+                    <li>Free addition, editing, and deletion of log items (questions)</li>
+                    <li>Complete customization of choices (add, edit, delete support)</li>
+                    <li>Basic statistics display</li>
+                    <li>Simple reminder function</li>
+                    <li>Japanese and English support</li>
+                    <li>Complete local storage (privacy-focused)</li>
+                </ul>
+                
+                <h3>Pro Version Exclusive Features</h3>
+                <ul class="feature-list">
+                    <li>Ad-free experience</li>
+                    <li>Unlimited log items</li>
+                    <li>Advanced reminders (individual day/time settings per item)</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>📝 Customization Examples</h4>
+                    <p><strong>Log Items:</strong> "How's your mood today?" "Did you exercise?" "Did you read?"</p>
+                    <p><strong>Choices:</strong> "Good/Bad" "Done/Not Done" "Yes/No"</p>
+                    <p>All can be freely edited and deleted later.</p>
+                </div>
+            </section>
+            
+            <section id="contact-en" class="section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about the app, bug reports, or feature requests, please feel free to contact us using the method below.</p>
+                
+                <div class="contact-info">
+                    <h3>📧 Support Email</h3>
+                    <a href="mailto:nkappsup@gmail.com">nkappsup@gmail.com</a>
+                    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">
+                        We usually respond within 48 hours
+                    </p>
+                </div>
+                
+                <h3>When Contacting Us</h3>
+                <p>To provide faster support, please include the following information:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Your device (iPhone/iPad)</li>
+                    <li>OS version</li>
+                    <li>App version</li>
+                    <li>Details of the problem</li>
+                    <li>Error messages (if displayed)</li>
+                </ul>
+            </section>
+            
+            <section id="privacy-en" class="section">
+                <h2>Privacy Policy</h2>
+                
+                <h3>Data Handling</h3>
+                <p>Pochi log is designed with user privacy as the top priority.</p>
+                
+                <div class="highlight">
+                    <h4>📍 Data We Collect</h4>
+                    <p>• Habit record data (stored only on device)</p>
+                    <p>• App settings information (stored only on device)</p>
+                    <br>
+                    <h4>🚫 Data We Don't Collect</h4>
+                    <p>• Personally identifiable information</p>
+                    <p>• Location information</p>
+                    <p>• Contacts</p>
+                    <p>• Other device data</p>
+                </div>
+                
+                <h3>Data Storage Location</h3>
+                <p>All data is stored only on your device and is never transmitted to external servers or cloud services.</p>
+                
+                <h3>Third-Party Sharing</h3>
+                <p>We never share user data with third parties.</p>
+                
+                <h3>Data Deletion</h3>
+                <p>When you delete the app, all data is completely removed.</p>
+            </section>
+            
+            <section class="section">
+                <h2>Terms of Service</h2>
+                
+                <h3>App Usage</h3>
+                <p>This app is developed for personal habit management. Please use it with the following understanding:</p>
+                
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>The app is provided as-is and does not guarantee completeness or accuracy</li>
+                    <li>The developer is not responsible for data loss or corruption</li>
+                    <li>We recommend regular backups of important data</li>
+                    <li>The developer is not responsible for damages arising from app usage</li>
+                </ul>
+                
+                <h3>Prohibited Activities</h3>
+                <p>The following activities are prohibited:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Reverse engineering or modifying the app</li>
+                    <li>Using the app through improper methods</li>
+                    <li>Activities that infringe on others' rights</li>
+                </ul>
+            </section>
+            
+            <div class="version-info">
+                <p>Last Updated: August 1, 2025</p>
+                <p>App Version: 1.0.0</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Pochi Log. All rights reserved.</p>
+            <p>For questions about this support page, please contact <a href="mailto:nkappsup@gmail.com">nkappsup@gmail.com</a>.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const japanese = document.getElementById('japanese');
+            const english = document.getElementById('english');
+            const langSwitch = document.querySelector('.lang-switch');
+            
+            if (japanese.classList.contains('hidden')) {
+                japanese.classList.remove('hidden');
+                english.classList.add('hidden');
+                langSwitch.textContent = 'English';
+            } else {
+                japanese.classList.add('hidden');
+                english.classList.remove('hidden');
+                langSwitch.textContent = '日本語';
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
